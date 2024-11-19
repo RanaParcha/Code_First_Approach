@@ -1,0 +1,78 @@
+﻿@model List<Code_First_Approach.Models.Employee>
+
+@* @{
+    ViewData["Title"] = "Privacy Policy";
+}
+<h1>@ViewData["Title"]</h1> *@
+
+<h4 style="text-align:center" >Employee Data</h4>
+
+<head>
+ @*    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> *@
+   
+</head>
+
+
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Employee Id</th>
+            <th> Name</th>
+            <th> Age</th>
+            <th> Email</th>
+            <th>Password</th>
+            <th>Action</th>
+            <th>Action</th>
+        </tr>
+
+    </thead>
+    <tbody>
+        @foreach (var emp in Model)
+        {
+            <tr>
+                <td>@emp.Id</td>
+                <td>@emp.Name</td>
+                <td>@emp.Age</td>
+                <td>@emp.Email</td>
+                <td>@emp.Password</td>
+                <td><a data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</a></td>
+                <td><a asp-controller="Home" asp-action="UpdateData" asp-route-id="@emp.Id" class="text-danger"  >Update</a></td>
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Yes</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Are you Sure?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <a type="button" class="btn btn-primary" asp-controller="Home" asp-action="DeleteData" asp-route-id="@emp.Id">Yes</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+
+
+@* <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Launch demo modal
+</button> *@
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

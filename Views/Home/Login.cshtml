@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = null;
+}
+
+<h1>Login</h1>
+
+<form asp-controller="Home" asp-action="Login" method="post">
+    <label>Email</label>
+    <input type="text" id="Email" name="Email" required />
+    <label>Password</label>
+    <input type="text" id="Password" name="Password" required />
+    <input type="submit" value="Login" class="btn btn-secondary" />
+
+</form>
+
